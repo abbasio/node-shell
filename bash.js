@@ -1,3 +1,6 @@
+const pwd = require('./pwd.js')
+const ls = require('./ls.js')
+
 // Output a prompt
 process.stdout.write('prompt > ');
 
@@ -6,11 +9,15 @@ process.stdin.on('data', (data) => {
   const cmd = data.toString().trim(); //removes the newline
   switch (cmd){
     case "pwd":
-      process.stdout.write(process.cwd());
+      pwd.pwd();
+      break;
+    case "ls":
+      ls.ls();
       break;
     }
     // process.stdout.write(`You typed: ${cmd}`);
     process.stdout.write('\nprompt > ');
   })
+
 
 
